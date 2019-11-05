@@ -19,19 +19,22 @@ public class FlickrPhotos {
     private String server;
     @SerializedName("farm")
     @Expose
-    private Integer farm;
+    private int farm;
     @SerializedName("title")
     @Expose
     private String title;
     @SerializedName("ispublic")
     @Expose
-    private Integer ispublic;
+    private int ispublic;
     @SerializedName("isfriend")
     @Expose
-    private Integer isfriend;
+    private int isfriend;
     @SerializedName("isfamily")
     @Expose
-    private Integer isfamily;
+    private int isfamily;
+    @SerializedName("url_s")
+    @Expose
+    private String urlS;
 
     public String getId() {
         return id;
@@ -65,11 +68,11 @@ public class FlickrPhotos {
         this.server = server;
     }
 
-    public Integer getFarm() {
+    public int getFarm() {
         return farm;
     }
 
-    public void setFarm(Integer farm) {
+    public void setFarm(int farm) {
         this.farm = farm;
     }
 
@@ -81,27 +84,35 @@ public class FlickrPhotos {
         this.title = title;
     }
 
-    public Integer getIspublic() {
+    public int getIspublic() {
         return ispublic;
     }
 
-    public void setIspublic(Integer ispublic) {
+    public void setIspublic(int ispublic) {
         this.ispublic = ispublic;
     }
 
-    public Integer getIsfriend() {
+    public int getIsfriend() {
         return isfriend;
     }
 
-    public void setIsfriend(Integer isfriend) {
+    public void setIsfriend(int isfriend) {
         this.isfriend = isfriend;
     }
 
-    public Integer getIsfamily() {
+    public int getIsfamily() {
         return isfamily;
     }
 
-    public void setIsfamily(Integer isfamily) {
+    public void setIsfamily(int isfamily) {
         this.isfamily = isfamily;
+    }
+
+    public String getUrlS() {
+        return urlS;
+    }
+
+    public void setUrlS(String urlS) {
+        this.urlS = urlS;
     }
 }
