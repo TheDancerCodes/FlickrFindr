@@ -25,6 +25,7 @@ public class MainViewModel extends ViewModel {
     private MutableLiveData<String> mErrorMessage = new MutableLiveData<>();
 
     private int photosPagesLoaded = 0;
+    private boolean mMoreFlickrImagesAvailable = true;
 
     private IFlickrService flickrService;
 
@@ -82,6 +83,14 @@ public class MainViewModel extends ViewModel {
                 });
     }
 
+    public LiveData<List<FlickrPhotos>> getFlickrPhotos() {
+        if (photosPagesLoaded == 0) {
+            searchFlickrPhotos();
+        }
+
+        return flickrPhotos;
+    }
+
     /**
      * Convenience method for showing an error to the user
      *
@@ -95,5 +104,9 @@ public class MainViewModel extends ViewModel {
     public LiveData<String> getErrorMessage() {
         mErrorMessage.setValue(null);
         return mErrorMessage;
+    }
+
+    public boolean isMoreSearchFlickrPhotosAvailable() {
+        return mMoreFlickrImagesAvailable;
     }
 }
