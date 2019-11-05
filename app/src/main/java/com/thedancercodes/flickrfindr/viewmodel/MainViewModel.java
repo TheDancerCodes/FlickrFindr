@@ -19,7 +19,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainViewModel extends ViewModel {
-    //private MutableLiveData<List<FlickrPhotos>> flickrPhotos = new MutableLiveData<>();
+    private MutableLiveData<List<FlickrPhotos>> flickrPhotos = new MutableLiveData<>();
     private MutableLiveData<Integer> mProgressBarVisibility = new MutableLiveData<>();
     private MutableLiveData<String> mErrorMessage = new MutableLiveData<>();
 
@@ -70,7 +70,7 @@ public class MainViewModel extends ViewModel {
                         }
 
                         if (response.body() != null) {
-
+                            flickrPhotos.postValue(response.body().getPhotos().getPhoto());
                         }
                     }
 
