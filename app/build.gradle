@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 28
@@ -38,6 +40,8 @@ dependencies {
 
     // Architecture Components
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0-alpha02'
+    implementation "androidx.core:core-ktx:+"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-alpha02"
 
     // Testing
     testImplementation 'junit:junit:4.12'
@@ -47,4 +51,8 @@ dependencies {
     // Network: Retrofit & Gson Converter
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

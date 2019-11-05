@@ -1,9 +1,11 @@
-package com.thedancercodes.flickrfindr;
+package com.thedancercodes.flickrfindr.ui;
 
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.thedancercodes.flickrfindr.BuildConfig;
+import com.thedancercodes.flickrfindr.R;
 import com.thedancercodes.flickrfindr.api.IFlickrService;
 import com.thedancercodes.flickrfindr.model.MainFlickrModel;
 import com.thedancercodes.flickrfindr.utils.Constants;
