@@ -17,7 +17,7 @@ public class FlickrAdapter extends RecyclerView.Adapter
         implements FlickrViewHolder.IFlickrViewHolderListener {
 
     private List<FlickrPhotos> mFlickrPhotos;
-    private IGistListListener mListener;
+    private IFlickrListListener mListener;
     private boolean mIsLoadMoreEnabled = false;
 
     @Override
@@ -101,7 +101,7 @@ public class FlickrAdapter extends RecyclerView.Adapter
      * Set or clear the interface listening to Gist clicks from this adapter
      * @param mListener the interface listening or NULL to clear it
      */
-    void setListener(IGistListListener mListener) {
+    void setListener(IFlickrListListener mListener) {
         this.mListener = mListener;
     }
 
@@ -132,7 +132,7 @@ public class FlickrAdapter extends RecyclerView.Adapter
         mListener.onFlickerItemClicked(mFlickrPhotos.get(position).getId());
     }
 
-    public interface IGistListListener {
+    public interface IFlickrListListener {
 
         /***
          * Called when a Gist is clicked

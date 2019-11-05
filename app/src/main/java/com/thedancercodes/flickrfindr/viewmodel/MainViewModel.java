@@ -1,5 +1,6 @@
 package com.thedancercodes.flickrfindr.viewmodel;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -88,5 +89,11 @@ public class MainViewModel extends ViewModel {
      */
     private void showError(String message) {
         mErrorMessage.postValue(message);
+    }
+
+
+    public LiveData<String> getErrorMessage() {
+        mErrorMessage.setValue(null);
+        return mErrorMessage;
     }
 }
