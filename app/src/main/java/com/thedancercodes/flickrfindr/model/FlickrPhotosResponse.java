@@ -9,13 +9,13 @@ public class FlickrPhotosResponse {
 
     @SerializedName("page")
     @Expose
-    private Integer page;
+    private int page;
     @SerializedName("pages")
     @Expose
-    private Integer pages;
+    private int pages;
     @SerializedName("perpage")
     @Expose
-    private Integer perpage;
+    private int perpage;
     @SerializedName("total")
     @Expose
     private String total;
@@ -23,27 +23,27 @@ public class FlickrPhotosResponse {
     @Expose
     private List<FlickrPhotos> photo = null;
 
-    public Integer getPage() {
+    public int getPage() {
         return page;
     }
 
-    public void setPage(Integer page) {
+    public void setPage(int page) {
         this.page = page;
     }
 
-    public Integer getPages() {
+    public int getPages() {
         return pages;
     }
 
-    public void setPages(Integer pages) {
+    public void setPages(int pages) {
         this.pages = pages;
     }
 
-    public Integer getPerpage() {
+    public int getPerpage() {
         return perpage;
     }
 
-    public void setPerpage(Integer perpage) {
+    public void setPerpage(int perpage) {
         this.perpage = perpage;
     }
 
@@ -62,5 +62,4 @@ public class FlickrPhotosResponse {
     public void setPhoto(List<FlickrPhotos> photo) {
         this.photo = photo;
     }
-
 }

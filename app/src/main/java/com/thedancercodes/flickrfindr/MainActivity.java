@@ -5,8 +5,7 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.thedancercodes.flickrfindr.api.IFlickrService;
-import com.thedancercodes.flickrfindr.model.FlickrPhotos;
-import com.thedancercodes.flickrfindr.model.FlickrPhotosResponse;
+import com.thedancercodes.flickrfindr.model.MainFlickrModel;
 import com.thedancercodes.flickrfindr.utils.Constants;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +16,6 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -51,28 +49,29 @@ public class MainActivity extends AppCompatActivity {
         initService();
 
         flickrService.searchFlickrPhotos(
-                "10d3dff04ffac1932a8672f5e39a7727", "sunset")
-                .enqueue(new Callback<FlickrPhotosResponse>() {
+                "1508443e49213ff84d566777dc211f2a", "sunset")
+                .enqueue(new Callback<MainFlickrModel>() {
                     @Override
-                    public void onResponse(Call<FlickrPhotosResponse> call, Response<FlickrPhotosResponse> response) {
+                    public void onResponse(Call<MainFlickrModel> call, Response<MainFlickrModel> response) {
 
                         if (!response.isSuccessful()) {
                             Log.d(TAG, "Response not Successful");
+                            return;
                         }
 
                         if (response.body() != null) {
                             // flickrPhotos.postValue(response.body());
-                            String LOG = String.valueOf(response.body());
                             Log.i(TAG, "Got response with status code " +
                                     response.code() +  " and message " +
                                     response.message());
                             // val body = response?.body()
-                            Log.i(TAG, "Response body = " +  response.body().getTotal());
+                            Log.i(TAG, "Response Error Body = " + response.errorBody());
+                            Log.i(TAG, "Response Body = " +  response.body().getPhotos().getPhoto());
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<FlickrPhotosResponse> call, Throwable t) {
+                    public void onFailure(Call<MainFlickrModel> call, Throwable t) {
                         Log.i(TAG, "Call to " + call.request().url() +
                                 "failed with " + t.toString());
                     }

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel;
 import com.thedancercodes.flickrfindr.api.IFlickrService;
 import com.thedancercodes.flickrfindr.model.FlickrPhotos;
 import com.thedancercodes.flickrfindr.model.FlickrPhotosResponse;
+import com.thedancercodes.flickrfindr.model.MainFlickrModel;
 import com.thedancercodes.flickrfindr.utils.Constants;
 
 import java.util.List;
@@ -59,9 +60,9 @@ public class MainViewModel extends ViewModel {
     public void searchFlickrPhotos() {
         flickrService.searchFlickrPhotos(
                 "1508443e49213ff84d566777dc211f2a", "sunset")
-                .enqueue(new Callback<FlickrPhotosResponse>() {
+                .enqueue(new Callback<MainFlickrModel>() {
                     @Override
-                    public void onResponse(Call<FlickrPhotosResponse> call, Response<FlickrPhotosResponse> response) {
+                    public void onResponse(Call<MainFlickrModel> call, Response<MainFlickrModel> response) {
 
                         if (!response.isSuccessful()) {
                             showError(response.message());
@@ -73,7 +74,7 @@ public class MainViewModel extends ViewModel {
                     }
 
                     @Override
-                    public void onFailure(Call<FlickrPhotosResponse> call, Throwable t) {
+                    public void onFailure(Call<MainFlickrModel> call, Throwable t) {
 
                     }
                 });
