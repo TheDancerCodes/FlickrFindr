@@ -12,4 +12,15 @@ This project is built with Gradle, the [Android Gradle plugin](http://tools.andr
 * You may be prompted with "Unlinked gradle project" -> Select "Import gradle project" and select
 the option to use the gradle wrapper
 * You may also be prompted to change to the appropriate SDK folder for your local machine
-* Once the project has compiled -> run the project! 
+* Once the project has compiled -> run the project!
+
+## Setup!
+
+You need to secure your API key  without pushing to remote repository.
+
+Here are the steps:
+
+1. Create a file named `secrets.properties` in the root directory of the project.
+2.  Paste your API KEY in secrets.properties using this format
+    * `FLICKR_API_KEY=YOUR-API-KEY`
+3. Sync the project or Rebuild.

@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         initService();
 
         flickrService.searchFlickrPhotos(
-                "1508443e49213ff84d566777dc211f2a", "sunset")
+                BuildConfig.FLICKR_API_KEY, "sunset")
                 .enqueue(new Callback<MainFlickrModel>() {
                     @Override
                     public void onResponse(Call<MainFlickrModel> call, Response<MainFlickrModel> response) {

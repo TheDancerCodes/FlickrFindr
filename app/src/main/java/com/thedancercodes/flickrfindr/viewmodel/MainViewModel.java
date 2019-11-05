@@ -3,6 +3,7 @@ package com.thedancercodes.flickrfindr.viewmodel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.thedancercodes.flickrfindr.BuildConfig;
 import com.thedancercodes.flickrfindr.api.IFlickrService;
 import com.thedancercodes.flickrfindr.model.FlickrPhotos;
 import com.thedancercodes.flickrfindr.model.FlickrPhotosResponse;
@@ -59,7 +60,7 @@ public class MainViewModel extends ViewModel {
      */
     public void searchFlickrPhotos() {
         flickrService.searchFlickrPhotos(
-                "1508443e49213ff84d566777dc211f2a", "sunset")
+                BuildConfig.FLICKR_API_KEY, "sunset")
                 .enqueue(new Callback<MainFlickrModel>() {
                     @Override
                     public void onResponse(Call<MainFlickrModel> call, Response<MainFlickrModel> response) {
