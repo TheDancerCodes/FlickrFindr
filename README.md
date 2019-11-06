@@ -24,3 +24,9 @@ Here are the steps:
 2.  Paste your API KEY in secrets.properties using this format
     * `FLICKR_API_KEY=YOUR-API-KEY`
 3. Sync the project or Rebuild.
+
+## Screenshots
+ ![Home View](art/home.png?raw=true "Home View")
+ ![Search View](art/search-view.png?raw=true "Search View")
+ ![Detail View](art/detail-view.png?raw=true "Detail View")
+
