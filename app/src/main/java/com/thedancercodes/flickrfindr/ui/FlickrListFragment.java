@@ -39,37 +39,8 @@ public class FlickrListFragment extends FlickrFragment {
                              @Nullable Bundle savedInstanceState) {
         View rootView = super.onCreateView(inflater, container, savedInstanceState);
 
-        LinearLayoutManager linearLayoutManager = (LinearLayoutManager) mFlickrList.getLayoutManager();
+        progressBar = rootView.findViewById(R.id.progress_flickr);
 
-//        if (linearLayoutManager != null) {
-//
-//            //Add a scroll listener to trigger a call to load more when the user reaches the bottom
-//            // of the list
-//            mFlickrList.addOnScrollListener(new RecyclerView.OnScrollListener() {
-//                @Override
-//                public void onScrolled(@NonNull RecyclerView recyclerView,
-//                                       int dx, int dy) {
-//                    super.onScrolled(recyclerView, dx, dy);
-//                    //Prevent any calls to update when the list has it disabled
-//                    if (!mAdapter.isLoadMoreEnabled()) {
-//                        return;
-//                    }
-//
-//                    //Prevent any calls to update if the list is empty
-//                    int totalItemCount = linearLayoutManager.getItemCount();
-//                    if (totalItemCount <= 0) {
-//                        return;
-//                    }
-//                    //Check to see if the last visible item is the last item in the list
-//                    int lastVisibleItem = linearLayoutManager
-//                            .findLastVisibleItemPosition();
-//                    // if (!mIsLoadingMore && lastVisibleItem >= totalItemCount - 1) {
-//                        // mIsLoadingMore = true;
-//                        // mViewModel.searchFlickrPhotos();
-//                    // }
-//                }
-//            });
-//        }
 
         return rootView;
     }
@@ -121,6 +92,7 @@ public class FlickrListFragment extends FlickrFragment {
         super.observeViewModel(q);
         mIsLoadingMore = true;
         mViewModel.getFlickrPhotos(q).observe(this, this::onFlickrsChanged);
+        mViewModel.getProgressBarVisibility().observe(this, visibility -> progressBar.setVisibility(visibility));
     }
 
     @Override
