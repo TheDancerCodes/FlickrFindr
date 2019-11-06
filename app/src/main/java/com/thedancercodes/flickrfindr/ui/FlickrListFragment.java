@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,6 +32,8 @@ public class FlickrListFragment extends FlickrFragment {
     private SearchView searchView = null;
     private SearchView.OnQueryTextListener queryTextListener;
 
+    private ProgressBar progressBar;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -38,35 +41,35 @@ public class FlickrListFragment extends FlickrFragment {
 
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) mFlickrList.getLayoutManager();
 
-        if (linearLayoutManager != null) {
-
-            //Add a scroll listener to trigger a call to load more when the user reaches the bottom
-            // of the list
-            mFlickrList.addOnScrollListener(new RecyclerView.OnScrollListener() {
-                @Override
-                public void onScrolled(@NonNull RecyclerView recyclerView,
-                                       int dx, int dy) {
-                    super.onScrolled(recyclerView, dx, dy);
-                    //Prevent any calls to update when the list has it disabled
-                    if (!mAdapter.isLoadMoreEnabled()) {
-                        return;
-                    }
-
-                    //Prevent any calls to update if the list is empty
-                    int totalItemCount = linearLayoutManager.getItemCount();
-                    if (totalItemCount <= 0) {
-                        return;
-                    }
-                    //Check to see if the last visible item is the last item in the list
-                    int lastVisibleItem = linearLayoutManager
-                            .findLastVisibleItemPosition();
-                    // if (!mIsLoadingMore && lastVisibleItem >= totalItemCount - 1) {
-                        // mIsLoadingMore = true;
-                        // mViewModel.searchFlickrPhotos();
-                    // }
-                }
-            });
-        }
+//        if (linearLayoutManager != null) {
+//
+//            //Add a scroll listener to trigger a call to load more when the user reaches the bottom
+//            // of the list
+//            mFlickrList.addOnScrollListener(new RecyclerView.OnScrollListener() {
+//                @Override
+//                public void onScrolled(@NonNull RecyclerView recyclerView,
+//                                       int dx, int dy) {
+//                    super.onScrolled(recyclerView, dx, dy);
+//                    //Prevent any calls to update when the list has it disabled
+//                    if (!mAdapter.isLoadMoreEnabled()) {
+//                        return;
+//                    }
+//
+//                    //Prevent any calls to update if the list is empty
+//                    int totalItemCount = linearLayoutManager.getItemCount();
+//                    if (totalItemCount <= 0) {
+//                        return;
+//                    }
+//                    //Check to see if the last visible item is the last item in the list
+//                    int lastVisibleItem = linearLayoutManager
+//                            .findLastVisibleItemPosition();
+//                    // if (!mIsLoadingMore && lastVisibleItem >= totalItemCount - 1) {
+//                        // mIsLoadingMore = true;
+//                        // mViewModel.searchFlickrPhotos();
+//                    // }
+//                }
+//            });
+//        }
 
         return rootView;
     }
