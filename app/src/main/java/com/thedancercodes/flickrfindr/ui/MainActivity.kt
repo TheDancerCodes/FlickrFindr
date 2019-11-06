@@ -6,8 +6,6 @@ import com.thedancercodes.flickrfindr.R
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 
 import android.view.MenuItem
 
@@ -23,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         val flickrListFragment = FlickrListFragment()
         val manager = supportFragmentManager
         val transaction = manager.beginTransaction()
-        transaction.add(R.id.mainlayout, flickrListFragment)
+        transaction.add(R.id.main_layout, flickrListFragment)
         transaction.commit()
 
     }

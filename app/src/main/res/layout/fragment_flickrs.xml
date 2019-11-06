@@ -51,7 +51,7 @@
             android:layout_margin="8dp"
             android:alpha="0.60"
             android:gravity="center_horizontal"
-            android:text="@string/label_flickrs_empty1"
+            android:text="@string/label_flickrs_error"
             android:fontFamily="@font/avenir"
             android:textAppearance="@android:style/TextAppearance.Material.Body1" />
 
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:alpha="0.38"
             android:gravity="center_horizontal"
-            android:text="@string/label_gists_empty2"
+            android:text="@string/label_flickrs_error_response"
             android:fontFamily="@font/avenir"
             android:textAppearance="@android:style/TextAppearance.Material.Body1" />
 

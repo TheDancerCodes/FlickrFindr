@@ -12,15 +12,12 @@ import com.bumptech.glide.request.RequestOptions;
 import com.thedancercodes.flickrfindr.R;
 import com.thedancercodes.flickrfindr.model.FlickrPhotos;
 
-import java.text.DateFormat;
-import java.util.Map;
 
 class FlickrViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     private ImageView mFlickrThumbnail;
     private TextView mFlickrTitle;
     private TextView mFlickrUrl;
-    private TextView mUpdatedText;
 
     private IFlickrViewHolderListener mListener;
 
@@ -32,7 +29,6 @@ class FlickrViewHolder extends RecyclerView.ViewHolder implements View.OnClickLi
         mFlickrThumbnail = itemView.findViewById(R.id.photo_thumbnail);
         mFlickrTitle = itemView.findViewById(R.id.text_flickr_title);
         mFlickrUrl = itemView.findViewById(R.id.text_flickr_url);
-        // mUpdatedText = itemView.findViewById(R.id.text_gist_updated);
         itemView.setOnClickListener(this);
     }
 
