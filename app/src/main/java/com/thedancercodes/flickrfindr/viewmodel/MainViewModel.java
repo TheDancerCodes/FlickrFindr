@@ -1,5 +1,7 @@
 package com.thedancercodes.flickrfindr.viewmodel;
 
+import android.view.View;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -60,6 +62,9 @@ public class MainViewModel extends ViewModel {
      * Search for Flickr photos using a search term
      */
     public void searchFlickrPhotos(String query) {
+
+        mProgressBarVisibility.postValue(View.VISIBLE);
+
         flickrService.searchFlickrPhotos(
                 BuildConfig.FLICKR_API_KEY, query)
                 .enqueue(new Callback<MainFlickrModel>() {
@@ -88,6 +93,10 @@ public class MainViewModel extends ViewModel {
         }
 
         return flickrPhotos;
+    }
+
+    public LiveData<Integer> getProgressBarVisibility() {
+        return mProgressBarVisibility;
     }
 
     /**
