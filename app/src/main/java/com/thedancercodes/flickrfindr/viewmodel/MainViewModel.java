@@ -60,9 +60,9 @@ public class MainViewModel extends ViewModel {
     /**
      * Search for Flickr photos using a search term
      */
-    public void searchFlickrPhotos() {
+    public void searchFlickrPhotos(String query) {
         flickrService.searchFlickrPhotos(
-                BuildConfig.FLICKR_API_KEY, "sunset")
+                BuildConfig.FLICKR_API_KEY, query)
                 .enqueue(new Callback<MainFlickrModel>() {
                     @Override
                     public void onResponse(Call<MainFlickrModel> call, Response<MainFlickrModel> response) {
@@ -83,9 +83,9 @@ public class MainViewModel extends ViewModel {
                 });
     }
 
-    public LiveData<List<FlickrPhotos>> getFlickrPhotos() {
+    public LiveData<List<FlickrPhotos>> getFlickrPhotos(String queryz) {
         if (photosPagesLoaded == 0) {
-            searchFlickrPhotos();
+            searchFlickrPhotos(queryz);
         }
 
         return flickrPhotos;

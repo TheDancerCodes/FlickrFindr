@@ -1,6 +1,5 @@
 package com.thedancercodes.flickrfindr.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +34,7 @@ public class FlickrFragment extends Fragment implements FlickrAdapter.IFlickrLis
     private View mEmptyListView;
     private ProgressBar mProgressBar;
 
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ public class FlickrFragment extends Fragment implements FlickrAdapter.IFlickrLis
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity, RecyclerView.VERTICAL, false);
         mFlickrList.setLayoutManager(linearLayoutManager);
         mFlickrList.addItemDecoration(new DividerItemDecoration(activity, DividerItemDecoration.VERTICAL));
-        mAdapter.setIsLoadMoreEnabled(true);
+        // mAdapter.setIsLoadMoreEnabled(true);
         mFlickrList.setAdapter(mAdapter);
 
         return rootView;
@@ -64,7 +64,7 @@ public class FlickrFragment extends Fragment implements FlickrAdapter.IFlickrLis
     @Override
     public void onStart() {
         super.onStart();
-        observeViewModel();
+        // observeViewModel();
     }
 
     @Override
@@ -89,7 +89,7 @@ public class FlickrFragment extends Fragment implements FlickrAdapter.IFlickrLis
     /**
      * Observe all of the necessary properties of the view model
      */
-    protected void observeViewModel() {
+    protected void observeViewModel(String q) {
         mViewModel.getErrorMessage().observe(this, this::onErrorChanged);
     }
 
