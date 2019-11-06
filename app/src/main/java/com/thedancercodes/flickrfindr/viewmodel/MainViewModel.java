@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel;
 import com.thedancercodes.flickrfindr.BuildConfig;
 import com.thedancercodes.flickrfindr.api.IFlickrService;
 import com.thedancercodes.flickrfindr.model.FlickrPhotos;
-import com.thedancercodes.flickrfindr.model.FlickrPhotosResponse;
 import com.thedancercodes.flickrfindr.model.MainFlickrModel;
 import com.thedancercodes.flickrfindr.utils.Constants;
 
