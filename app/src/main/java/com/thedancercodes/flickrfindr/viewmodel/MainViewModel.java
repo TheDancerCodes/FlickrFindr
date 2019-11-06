@@ -1,5 +1,6 @@
 package com.thedancercodes.flickrfindr.viewmodel;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -19,11 +20,12 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainViewModel extends ViewModel {
-    //private MutableLiveData<List<FlickrPhotos>> flickrPhotos = new MutableLiveData<>();
+    private MutableLiveData<List<FlickrPhotos>> flickrPhotos = new MutableLiveData<>();
     private MutableLiveData<Integer> mProgressBarVisibility = new MutableLiveData<>();
     private MutableLiveData<String> mErrorMessage = new MutableLiveData<>();
 
     private int photosPagesLoaded = 0;
+    private boolean mMoreFlickrImagesAvailable = true;
 
     private IFlickrService flickrService;
 
@@ -58,9 +60,9 @@ public class MainViewModel extends ViewModel {
     /**
      * Search for Flickr photos using a search term
      */
-    public void searchFlickrPhotos() {
+    public void searchFlickrPhotos(String query) {
         flickrService.searchFlickrPhotos(
-                BuildConfig.FLICKR_API_KEY, "sunset")
+                BuildConfig.FLICKR_API_KEY, query)
                 .enqueue(new Callback<MainFlickrModel>() {
                     @Override
                     public void onResponse(Call<MainFlickrModel> call, Response<MainFlickrModel> response) {
@@ -70,7 +72,7 @@ public class MainViewModel extends ViewModel {
                         }
 
                         if (response.body() != null) {
-
+                            flickrPhotos.postValue(response.body().getPhotos().getPhoto());
                         }
                     }
 
@@ -81,6 +83,14 @@ public class MainViewModel extends ViewModel {
                 });
     }
 
+    public LiveData<List<FlickrPhotos>> getFlickrPhotos(String queryz) {
+        if (photosPagesLoaded == 0) {
+            searchFlickrPhotos(queryz);
+        }
+
+        return flickrPhotos;
+    }
+
     /**
      * Convenience method for showing an error to the user
      *
@@ -88,5 +98,15 @@ public class MainViewModel extends ViewModel {
      */
     private void showError(String message) {
         mErrorMessage.postValue(message);
+    }
+
+
+    public LiveData<String> getErrorMessage() {
+        mErrorMessage.setValue(null);
+        return mErrorMessage;
+    }
+
+    public boolean isMoreSearchFlickrPhotosAvailable() {
+        return mMoreFlickrImagesAvailable;
     }
 }

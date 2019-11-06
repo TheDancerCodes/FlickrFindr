@@ -1,15 +1,19 @@
-package com.thedancercodes.flickrfindr;
+package com.thedancercodes.flickrfindr.ui;
 
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.thedancercodes.flickrfindr.BuildConfig;
+import com.thedancercodes.flickrfindr.R;
 import com.thedancercodes.flickrfindr.api.IFlickrService;
 import com.thedancercodes.flickrfindr.model.MainFlickrModel;
 import com.thedancercodes.flickrfindr.utils.Constants;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.View;
@@ -45,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        FlickrListFragment flickrListFragment = new FlickrListFragment();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.mainlayout, flickrListFragment);
+        transaction.commit();
 
         initService();
 
@@ -92,12 +102,12 @@ public class MainActivity extends AppCompatActivity {
         flickrService = retrofit.create(IFlickrService.class);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_search, menu);
+//        return true;
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

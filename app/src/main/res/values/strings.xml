@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Flickr Findr</string>
     <string name="action_settings">Settings</string>
+    <string name="search_hint">Enter Search Term</string>
+    <string name="search">Search</string>
+    <string name="thumbnail_desc">This is the thumbnail desc</string>
+    <string name="label_flickrs_empty1">We didn\\\'t find any flickrs</string>
+    <string name="label_gists_empty2">Check your internet connection and try again</string>
 </resources>
