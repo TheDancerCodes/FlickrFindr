@@ -81,9 +81,9 @@ public class FlickrFragment extends Fragment implements FlickrAdapter.IFlickrLis
     }
 
     @Override
-    public void onFlickerItemClicked(String flickrId) {
+    public void onFlickerItemClicked(String flickrUrl) {
          Intent flickrIntent = new Intent(getActivity(), FlickrDetailActivity.class);
-         flickrIntent.putExtra(FlickrDetailActivity.KEY_FLICKR_ID, flickrId);
+         flickrIntent.putExtra(FlickrDetailActivity.KEY_FLICKR_URL, flickrUrl);
          startActivity(flickrIntent);
     }
 

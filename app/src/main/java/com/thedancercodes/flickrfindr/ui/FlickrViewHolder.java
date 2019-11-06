@@ -73,8 +73,8 @@ class FlickrViewHolder extends RecyclerView.ViewHolder implements View.OnClickLi
     interface IFlickrViewHolderListener {
 
         /***
-         * Called when a Gist is clicked
-         * @param position the position of the Gist item that was clicked
+         * Called when a Flickr item is clicked
+         * @param position the position of the Flickr item that was clicked
          */
         void onFlickerItemClicked(int position);
     }
