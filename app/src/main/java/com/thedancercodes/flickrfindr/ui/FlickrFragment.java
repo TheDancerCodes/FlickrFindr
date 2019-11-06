@@ -43,6 +43,8 @@ public class FlickrFragment extends Fragment implements FlickrAdapter.IFlickrLis
 
         mEmptyListView = rootView.findViewById(R.id.view_flickrs_empty);
         mProgressBar = rootView.findViewById(R.id.progress_flickr);
+        mProgressBar.setVisibility(View.INVISIBLE);
+
         mFlickrList = rootView.findViewById(R.id.list_flickrs);
         mFlickrList.setVisibility(View.GONE);
 
@@ -65,7 +67,6 @@ public class FlickrFragment extends Fragment implements FlickrAdapter.IFlickrLis
     @Override
     public void onStart() {
         super.onStart();
-        // observeViewModel();
     }
 
     @Override

@@ -30,14 +30,6 @@ public class FlickrDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flickr_detail);
 
-        // Configure Toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar_flickr_detail);
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_close);
-        }
 
         //Views
         mProgressBar = findViewById(R.id.progress_flickr_detail);
