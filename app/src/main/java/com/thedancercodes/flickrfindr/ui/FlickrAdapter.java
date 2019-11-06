@@ -69,7 +69,7 @@ public class FlickrAdapter extends RecyclerView.Adapter
 
     /***
      * Update the data set driving this adapter
-     * @param flickrPhotos the new list of gists to use
+     * @param flickrPhotos the new list of flickrPhotos to use
      */
     public void setFlickrPhotos(List<FlickrPhotos> flickrPhotos) {
         //When the new list is NULL, use a blank list
@@ -82,7 +82,7 @@ public class FlickrAdapter extends RecyclerView.Adapter
         int oldSize = mFlickrPhotos != null ? mFlickrPhotos.size() : 0;
         //Get the size of the new list
         int newSize = flickrPhotos.size();
-        //Update the gist list
+        //Update the flickrPhotos list
         mFlickrPhotos = new ArrayList<>(flickrPhotos);
         if (oldSize <= 0) {
             //When the size of the old list was 0, refresh the whole list
@@ -98,7 +98,7 @@ public class FlickrAdapter extends RecyclerView.Adapter
     }
 
     /***
-     * Set or clear the interface listening to Gist clicks from this adapter
+     * Set or clear the interface listening to Flickr Photos clicks from this adapter
      * @param mListener the interface listening or NULL to clear it
      */
     void setListener(IFlickrListListener mListener) {
@@ -128,16 +128,16 @@ public class FlickrAdapter extends RecyclerView.Adapter
             return;
         }
 
-        //Tell the listener that a gist was clicked
-        mListener.onFlickerItemClicked(mFlickrPhotos.get(position).getId());
+        //Tell the listener that a flickr item was clicked
+        mListener.onFlickerItemClicked(mFlickrPhotos.get(position).getUrlS());
     }
 
     public interface IFlickrListListener {
 
         /***
-         * Called when a Gist is clicked
-         * @param gistId the ID of the Gist that was clicked
+         * Called when a Flickr item is clicked
+         * @param flickrUrl the URL of the Flickr item that was clicked
          */
-        void onFlickerItemClicked(String gistId);
+        void onFlickerItemClicked(String flickrUrl);
     }
 }

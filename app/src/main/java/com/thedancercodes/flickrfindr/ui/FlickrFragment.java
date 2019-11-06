@@ -1,5 +1,6 @@
 package com.thedancercodes.flickrfindr.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -80,10 +81,10 @@ public class FlickrFragment extends Fragment implements FlickrAdapter.IFlickrLis
     }
 
     @Override
-    public void onFlickerItemClicked(String gistId) {
-        // Intent flickrIntent = new Intent(getActivity(), FlickrDetailActivity.class);
-        // flickrIntent.putExtra(FlickrDetailActivity.KEY_FLICKR_ID, flickrId);
-        // startActivity(flickrIntent);
+    public void onFlickerItemClicked(String flickrUrl) {
+         Intent flickrIntent = new Intent(getActivity(), FlickrDetailActivity.class);
+         flickrIntent.putExtra(FlickrDetailActivity.KEY_FLICKR_URL, flickrUrl);
+         startActivity(flickrIntent);
     }
 
     /**
